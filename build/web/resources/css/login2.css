@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url('images/zoo.jpg');
+    font-family: verdana;
+}
+
+#main{
+    background: #2d3238;
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.50);
+    transition: all 0.3s ease-in;
+}
+
+#main:hover{
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.50);
+}
+
+#logincontainer{
+    padding: 25px;
+    background: #2d3238;
+}
+
+.form-control{
+    width: 75%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.form-group{
+    padding-left: 68px;
+    padding-top: 20px;
+}
+
+.inputbox{
+    height: 33px;
+    border: none;
+    padding: 5px;
+}
+
+.inputbox:focus{
+    outline-color: #EA9AA8;
+}
+
+.btn{
+    width: 30%;
+    height: 22px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-primary{
+    background: beige;
+    color: black;
+}
+
+#register-tab{
+    padding: 10px;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    color:black;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.active{
+    background:beige
+}
+
+.textcenter{
+    text-align: center;
+}
+
+.signuptxt,.logintxt{
+    font-size: 12px;
+    margin: 10px 0;
+    color:white
+}

@@ -1,0 +1,138 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>LOGIN</title>
+        <h:outputScript library="js" name="jquery-3.3.1.js" />
+        <h:outputStylesheet library="css" name="login.css"/>        
+    </h:head>
+    <h:body>
+        
+        <div id="container">
+            
+            <main id="main">
+               
+                <div id="loginuicontainer">
+                    <div id="login-tab" >Login</div><div id="register-tab" class="active">Register</div>   
+                    <div id="logincontainer" hidden="hidden">
+                        <h:form>
+                            <div class="form-group" >
+                                <h:inputText class="form-control inputbox" id="login-username" value="#{user.username}" a:placeholder="Username" />
+                            </div>
+                            <div class="form-group">
+                                <h:inputSecret class="form-control inputbox" id="login-password" value="#{user.password}" a:placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <h:commandButton value="Login" action="#{user.validasiLogin()}" class="btn btn-primary" />
+                            </div>
+                           
+                        </h:form>
+                        
+                        <p class="textcenter"><a style="font-size: 9pt; color: #fff;" href="Home.xhtml">Back to home page.</a></p>
+                    </div>
+                    
+                    <div id="registercontainer">
+                       
+                        <h:form>
+<!--                            <c:if test="{user.error == true}">
+                                 <div style="text-align: center; margin-top: 10px; background-color: #EA9AA8; color: white;">
+                                        <h2>Gagal Login!</h2>
+                                    </div>
+                                </c:if>-->
+                            <div class="form-group">
+                                <h:message for="register-first name" style="font-size: 9pt; color: red;"/>
+                                <h:inputText class="form-control inputbox" id="register-fullname" a:placeholder="First Name" value="#{user.firstName}"
+                                             requiredMessage="Please Enter Your First Name" required="true" />                                
+                            </div>
+                            <div class="form-group">
+                                <h:message for="register-last name" style="font-size: 9pt; color: red;"/> 
+                                <h:inputText class="form-control inputbox" id="register-username" a:placeholder="Last Name" value="#{user.lastName}"
+                                             required="true" requiredMessage="Please Enter Your Last name"/>      
+                            <div class="form-group">
+                                <h:message for="register-alamat" style="font-size: 9pt; color: red;"/>    
+                                <h:inputText class="form-control inputbox" id="register-alamat" a:placeholder="Address" maxlength="50" value="#{user.address}"
+                                             required="true" requiredMessage="Please Enter Your Address"/>                                                    
+                            </div>
+                            <div class="form-group">
+                                <h:message for="register-email" style="font-size: 9pt; color: red;"/>          
+                                <h:inputText class="form-control inputbox" id="register-email" a:placeholder="Email" value="#{user.email}"
+                                             required="true" requiredMessage="Please Enter Your Email" validatorMessage="Email is Not Valid">
+                                    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                                </h:inputText>                                              
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <h:message for="register-phonenumber" style="font-size: 9pt; color: red;"/> 
+                                <h:inputText class="form-control inputbox" id="register-phonenumber" a:placeholder="Phone Number" value="#{user.phone}"
+                                             required="true" requiredMessage="Please Enter Your Phone Number" converterMessage="Phone Number is Not Valid">
+                                </h:inputText>                                                     
+                            </div>
+                            <div class="form-group">
+                                <h:message for="register-user" style="font-size: 9pt; color: red;"/> 
+                                <h:inputText class="form-control inputbox" id="register-user" a:placeholder="Username" value="#{user.username}"
+                                             required="true" requiredMessage="Please Enter Your Username"/>                                                       
+                            </div>
+                            <div class="form-group">
+                                <h:message for="register-password" style="font-size: 9pt; color: red;"/>         
+                                <h:inputSecret class="form-control inputbox" id="register-password" a:placeholder="Password" value="#{user.password}"
+                                               required="true" requiredMessage="Please Enter Your Password"/>
+
+                            </div>
+
+                            <div class="form-group">
+                                <h:commandButton class="btn btn-primary" value="Register"  action="#{user.save()}" />
+                            </div>  
+                            
+                        </h:form>
+                        <p class="textcenter"><a style="font-size: 9pt; color: #fff;" href="Home.xhtml">Back to home page.</a></p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </h:body>
+    <script>
+        var logincontainer = document.querySelector('#logincontainer');
+        var registercontainer = document.querySelector('#registercontainer');
+        var registertab = document.querySelector('#register-tab');
+        var logintab = document.querySelector('#login-tab');
+        var loginlink = document.querySelector('.loginlink');
+        var registerlink = document.querySelector('.registerlink');
+
+        registertab.addEventListener('click', function () {
+            registeractive();
+        });
+
+        logintab.addEventListener('click', function () {
+            loginactive();
+        });
+
+        loginlink.addEventListener('click', function () {
+            loginactive();
+        });
+
+        registerlink.addEventListener('click', function () {
+            registeractive();
+        });
+
+        function registeractive() {
+            logincontainer.style.display = "block";
+            registercontainer.style.display = "none";
+            registertab.classList.remove('active');
+            logintab.classList.add('active');
+        }
+
+        function loginactive() {
+            logincontainer.style.display = "none";
+            registercontainer.style.display = "block";
+            registertab.classList.add('active');
+            logintab.classList.remove('active');
+        }
+
+    </script>    
+</html>
+
+
+
+

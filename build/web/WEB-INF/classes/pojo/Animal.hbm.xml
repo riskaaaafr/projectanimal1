@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 30, 2020 10:30:40 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.Animal" table="animal" catalog="zoo" optimistic-lock="version">
+        <id name="idAnimal" type="java.lang.Integer">
+            <column name="id_animal" />
+            <generator class="identity" />
+        </id>
+        <property name="nama" type="string">
+            <column name="nama" length="50" not-null="true" />
+        </property>
+        <property name="tglLahir" type="string">
+            <column name="tgl_lahir" length="10" not-null="true" />
+        </property>
+        <property name="keeper" type="string">
+            <column name="keeper" length="50" not-null="true" />
+        </property>
+        <property name="negara" type="string">
+            <column name="negara" length="50" not-null="true" />
+        </property>
+        <property name="spesies" type="string">
+            <column name="spesies" length="50" not-null="true" />
+        </property>
+        <property name="pemakan" type="string">
+            <column name="pemakan" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
